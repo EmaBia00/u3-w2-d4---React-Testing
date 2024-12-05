@@ -1,11 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import BookList from "../components/BookList";
 import fantasyBooks from "../data/fantasy.json";
+import { describe, it } from "vitest";
 
-test("renders the correct number of book cards", () => {
-  render(<BookList books={fantasyBooks} selectedBookAsin={null} onBookSelect={() => {}} />);
-  const cards = screen.getAllByRole("article");
-  expect(cards).toHaveLength(fantasyBooks.length);
+describe("Booklist Functionalities", () => {
+  it("renders the correct number of book cards", async () => {
+    render(<BookList books={fantasyBooks} selectedBookAsin={null} onBookSelect={() => {}} />);
+    const cards = await screen.findAllByTestId("book-card");
+    expect(cards.length).toBeGreaterThan(0);
+    expect(cards).toHaveLength(fantasyBooks.length);
+  });
 });
 
 test("clicking a book changes its border color", () => {

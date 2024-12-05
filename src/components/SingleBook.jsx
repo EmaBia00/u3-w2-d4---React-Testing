@@ -10,7 +10,7 @@ function SingleBook({ book, isSelected, onSelect }) {
       className={`cursor-pointer ${isSelected ? "border-danger border-3" : "border-light"} shadow-sm`}
       onClick={handleSelect}
       style={{ width: "100%", cursor: "pointer" }}
-      role="article"
+      data-testid="book-card"
     >
       <Card.Img variant="top" src={book.img} alt={book.title} />
       <Card.Body>

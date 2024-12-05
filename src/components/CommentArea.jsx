@@ -52,7 +52,7 @@ function CommentArea({ asin }) {
   };
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4" data-testid="comment-area">
       {asin ? (
         <Row>
           <Col>
